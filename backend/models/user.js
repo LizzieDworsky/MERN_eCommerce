@@ -9,7 +9,7 @@ const userSchema = new Schema({
 });
 
 // Method that generates a JWT token
-userSchema.method.generateAuthToken = function () {
+userSchema.methods.generateAuthToken = function () {
     return jwt.sign(
         { _id: this._id, username: this.username },
         process.env.JWT_SECRET
