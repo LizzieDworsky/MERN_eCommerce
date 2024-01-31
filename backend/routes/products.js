@@ -41,7 +41,16 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     try {
-        res.status(200).send("Put Request.");
+        let { error } = validateProduct(req.body);
+        if (error) {
+            return res.status(400).send("Invalid body for put request.");
+        }
+        let updatedProduct = await Product.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        res.status(200).send(updatedProduct);
     } catch (error) {
         res.status(500).send(`Internal Server Error ${error}`);
     }
@@ -49,6 +58,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
+        await Product.findByIdAndDelete(req.params.id);
         res.status(204).send("");
     } catch (error) {
         res.status(500).send(`Internal Server Error ${error}`);
