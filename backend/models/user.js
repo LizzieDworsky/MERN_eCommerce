@@ -32,6 +32,7 @@ function validateLogin(data) {
         username: Joi.string().required(),
         password: Joi.string().min(5).max(1024).required(),
     });
+    return schema.validate(data);
 }
 
 module.exports = { User, validateUser, validateLogin };
