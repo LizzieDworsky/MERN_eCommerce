@@ -4,6 +4,7 @@ const {
     ShoppingCart,
     validateShoppingCart,
 } = require("../models/shoppingCart");
+const { auth } = require("../middleware/auth");
 
 router.get("/:username", async (req, res) => {
     try {
@@ -21,14 +22,18 @@ router.get("/:username", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
     try {
-        let { error } = validateShoppingCart(req.body);
+        let data = {
+            user: req.user._id,
+            product: req.body.product,
+        };
+        let { error } = validateShoppingCart(data);
         if (error) {
             return res.status(400).send("Invalid body for post request.");
         }
 
-        let newShoppingCart = new ShoppingCart(req.body);
+        let newShoppingCart = new ShoppingCart(data);
         await newShoppingCart.save();
 
         res.status(201).send(newShoppingCart);
