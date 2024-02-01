@@ -16,7 +16,7 @@ const ShoppingCart = model("ShoppingCart", shoppingCartSchema);
 
 const validateShoppingCart = (data) => {
     const schema = Joi.object({
-        user: Joi.string().required(),
+        user: Joi.string().hex().length(24).required(),
         product: Joi.string().hex().length(24).required(),
     });
     return schema.validate(data);
