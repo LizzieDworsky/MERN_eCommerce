@@ -6,9 +6,9 @@ const {
 } = require("../models/shoppingCart");
 const { auth } = require("../middleware/auth");
 
-router.get("/:username", async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
-        let user = req.params.username;
+        let user = req.user._id;
         let shoppingCart = await ShoppingCart.find({ user: user }).populate(
             "product"
         );
