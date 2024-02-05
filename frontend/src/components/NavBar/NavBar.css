@@ -1,0 +1,46 @@
+/* Styles for the nav-bar */
+.nav-bar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-text {
+    color: #343a40;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-text:hover,
+.nav-text:focus {
+    color: #007bff;
+}
+
+.nav-ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-ul li {
+    padding: 0.5rem 0;
+}
+
+.fa6 {
+    vertical-align: middle;
+    font-size: 1.5rem;
+    color: #343a40;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.fa6:hover,
+.fa6:focus {
+    color: #007bff;
+    transform: scale(1.1);
+}
