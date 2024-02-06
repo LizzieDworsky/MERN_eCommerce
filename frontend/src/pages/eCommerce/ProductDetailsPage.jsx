@@ -18,10 +18,10 @@ const ProductDetailsPage = () => {
     const [product, setProduct] = useState(data);
 
     return (
-        <div>
+        <div className="product-details-page">
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p>${product.price}</p>
+            <p className="price">${product.price}</p>
         </div>
     );
 };

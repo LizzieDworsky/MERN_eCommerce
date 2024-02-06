@@ -7,3 +7,34 @@ body {
 .products-page {
     padding: 2rem;
 }
+
+/* Styles for the ProductDetailsPage */
+.product-details-page {
+    max-width: 30rem; /* Sets a max-width for the content to avoid very long lines on larger screens */
+    margin: 2rem auto; /* Centers the content with margin on the top and bottom */
+    padding: 1rem; /* Adds padding around the content */
+    background-color: #ffffff; /* White background for the details section */
+    border: 1px solid #ced4da; /* Accent Grey border for definition */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.product-details-page h2 {
+    color: #343a40; /* Neutral Grey for the product name */
+    text-align: center; /* Centers the title */
+    margin-top: 0; /* Removes top margin */
+    padding-top: 0.5rem; /* Adds a little padding at the top */
+}
+
+.product-details-page p {
+    color: #343a40; /* Neutral Grey for the text */
+    line-height: 1.6; /* Increases line-height for better readability */
+    margin: 1rem 0; /* Adds top and bottom margin for paragraph separation */
+}
+
+.product-details-page p.price {
+    color: #007bff; /* Primary Blue for the price to make it stand out */
+    font-weight: bold; /* Makes the price bold */
+    font-size: 1.25rem; /* Slightly larger font size for price */
+    text-align: center; /* Centers the price */
+}
