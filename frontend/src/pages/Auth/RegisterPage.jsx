@@ -13,8 +13,8 @@ const RegisterPage = () => {
     };
 
     return (
-        <div>
-            <h2>Register</h2>
+        <div className="register-page">
+            <h2>Registration Form</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Enter your username:</label>
                 <input name="username" type="text" />
