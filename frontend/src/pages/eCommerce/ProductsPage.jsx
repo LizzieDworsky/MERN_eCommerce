@@ -16,7 +16,6 @@ const ProductsPage = () => {
     const data = useLoaderData();
     const [products, setProducts] = useState(data);
 
-    console.log(products);
     return (
         <div className="products-page">
             <ProductsList products={products} />
