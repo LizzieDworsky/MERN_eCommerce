@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import App from "./App";
+
 import ProductsPage, { getAllProducts } from "./pages/eCommerce/ProductsPage";
 import ProductDetailsPage, {
     getProduct,
@@ -9,6 +11,8 @@ import ProductDetailsPage, {
 import ShoppingCartPage from "./pages/eCommerce/ShoppingCartPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
+
+import { AuthProvider } from "./utils/useAuth";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +48,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <AuthProvider>
+            <RouterProvider router={router} />
+        </AuthProvider>
     </React.StrictMode>
 );
