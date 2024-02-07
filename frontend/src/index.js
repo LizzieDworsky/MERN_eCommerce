@@ -13,6 +13,7 @@ import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 
 import { AuthProvider } from "./utils/useAuth";
+import PrivateRoute from "./utils/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "cart",
-                element: <ShoppingCartPage />,
+                element: (
+                    <PrivateRoute>
+                        <ShoppingCartPage />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "login",
