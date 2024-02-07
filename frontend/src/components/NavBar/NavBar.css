@@ -18,6 +18,7 @@
 .nav-text:hover,
 .nav-text:focus {
     color: #007bff;
+    cursor: pointer;
 }
 
 .nav-ul {

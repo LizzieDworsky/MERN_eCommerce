@@ -4,11 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/useAuth";
 
 const LoginPage = () => {
-    const { storeToken } = useAuth();
+    const navigate = useNavigate();
+    const { storeToken, isAuthenticated } = useAuth();
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
     });
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
+    }, [isAuthenticated]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
