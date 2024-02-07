@@ -1,12 +1,22 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../utils/useAuth";
 
 const RegisterPage = () => {
+    const navigate = useNavigate();
+    const { storeToken, isAuthenticated } = useAuth();
     const [credentials, setCredentials] = useState({
         username: "",
         email: "",
         password: "",
     });
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
+    }, [isAuthenticated]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,6 +33,10 @@ const RegisterPage = () => {
             );
             if (response.status === 201) {
                 setCredentials({ username: "", email: "", password: "" });
+                const token = response.headers["x-auth-token"];
+                if (token) {
+                    storeToken(token);
+                }
             }
         } catch (error) {
             console.warn(`Registration error: ${error}`);
