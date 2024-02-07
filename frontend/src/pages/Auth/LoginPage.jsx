@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/useAuth";
 
 const LoginPage = () => {
+    const { storeToken } = useAuth();
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
@@ -14,9 +15,24 @@ const LoginPage = () => {
         setCredentials({ ...credentials, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(credentials);
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/api/auth/login",
+                credentials
+            );
+            if (response.status === 201) {
+                setCredentials({ username: "", password: "" });
+                const token = response.headers["x-auth-token"];
+                if (token) {
+                    storeToken(token);
+                }
+            }
+        } catch (error) {
+            console.warn(`Login error: ${error}`);
+        }
     };
 
     return (
