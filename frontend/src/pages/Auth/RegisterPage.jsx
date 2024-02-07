@@ -30,7 +30,7 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="register-page">
+        <div className="auth-form">
             <h2>Registration Form</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Enter your username:</label>

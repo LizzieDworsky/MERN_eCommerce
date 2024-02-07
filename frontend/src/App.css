@@ -39,8 +39,8 @@ body {
     text-align: center;
 }
 
-/* Styles for the RegisterPage */
-.register-page {
+/* Styles for the RegisterPage and LoginPage */
+.auth-form {
     max-width: 400px;
     margin: 2rem auto;
     padding: 2rem;
@@ -50,23 +50,23 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.register-page h2 {
+.auth-form h2 {
     color: #343a40;
     text-align: center;
     margin-bottom: 1rem;
 }
 
-.register-page form {
+.auth-form form {
     display: flex;
     flex-direction: column;
 }
 
-.register-page label {
+.auth-form label {
     color: #343a40;
     margin-top: 1rem;
 }
 
-.register-page input {
+.auth-form input {
     padding: 0.5rem;
     margin-top: 0.5rem;
     border: 1px solid #ced4da;
@@ -74,7 +74,7 @@ body {
     font-size: 1rem;
 }
 
-.register-page button {
+.auth-form button {
     background-color: #007bff;
     color: #ffffff;
     padding: 0.5rem 1rem;
@@ -86,6 +86,6 @@ body {
     transition: background-color 0.3s;
 }
 
-.register-page button:hover {
+.auth-form button:hover {
     background-color: #0056b3;
 }
